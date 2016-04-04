@@ -10,15 +10,19 @@ package juego;
  * @author PUCP
  */
 import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+
 public class Juego {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        while(true){
-            //MODIFICACION LALALA
-            //ASNO
+        Ventana miVentana = new Ventana();
+        miVentana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        miVentana.setVisible(true);
+        while(true){            
             System.out.println("Elija una opción:");
             System.out.println("1.- Iniciar el juego");
             System.out.println("2.- Salir del juego");
