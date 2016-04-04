@@ -9,13 +9,29 @@ package juego;
  *
  * @author PUCP
  */
+import java.util.*;
 public class Juego {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        while(true){
+            System.out.println("Elija una opción:");
+            System.out.println("1.- Iniciar el juego");
+            System.out.println("2.- Salir del juego");
+            Scanner entrada = new Scanner(System.in);
+            int option = entrada.nextInt();
+            switch(option){
+                case 1:
+                
+                    break;
+            
+                case 2:                    
+                    System.out.println("Ha salido del juego");
+                    break;
+            }
+        }
     }
     
 }
