@@ -19,6 +19,8 @@ public class Ventana extends JFrame {
         Dimension tamanioPantalla = mipantalla.getScreenSize();
         int alturaPantalla = tamanioPantalla.height;
         int anchoPantalla = tamanioPantalla.width;
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
         setTitle("Nombre del juego");
         setBounds(0,0,1024,768);
         Menu laminaMenu = new Menu();

@@ -19,9 +19,7 @@ public class Juego {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Ventana miVentana = new Ventana();
-        miVentana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        miVentana.setVisible(true);
+        Ventana miVentana = new Ventana();        
         while(true){            
             System.out.println("Elija una opción:");
             System.out.println("1.- Iniciar el juego");
