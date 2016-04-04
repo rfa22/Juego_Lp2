@@ -18,6 +18,7 @@ public class Juego {
     public static void main(String[] args) {
         while(true){
             //MODIFICACION LALALA
+            //ASNO
             System.out.println("Elija una opción:");
             System.out.println("1.- Iniciar el juego");
             System.out.println("2.- Salir del juego");
