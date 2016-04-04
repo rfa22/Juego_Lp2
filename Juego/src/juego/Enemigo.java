@@ -9,8 +9,7 @@ package juego;
  *
  * @author PUCP
  */
-public class Mapa {
-    private int ancho;
-    private int alto;
-    
+public class Enemigo extends Personaje{
+    private int danio;
+   
 }

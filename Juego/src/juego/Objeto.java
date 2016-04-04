@@ -10,5 +10,8 @@ package juego;
  * @author PUCP
  */
 public class Objeto {
+    private String nombre;
+    private int posX;
+    private int posY;
     
 }
