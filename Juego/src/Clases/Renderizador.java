@@ -14,17 +14,24 @@ public class Renderizador {
     
     public Renderizador(){
         
-    }
+    }    
     
-    public void imprimeMapa(Mapa m){
+    public void imprimeMapa(Mapa m,Personaje a,Personaje b){
         int fil = m.getAlto();
         int col = m.getAncho();
-        
-        for(int i=0; i<fil; i++)
-            for(int j=0; j<col; j++)                
-                System.out.print(m.getCelda(i, j).getContenido());
-            
-        
-    }
-    
+                                                        
+        m.getCelda(a.getPosI(), a.getPosJ()).setContenido('A');
+        m.getCelda(b.getPosI(), b.getPosJ()).setContenido('B');
+        for(int i=0;i<10;i++){
+            m.getCelda(0, i).setContenido('♥');
+            m.getCelda(0, i).imprimeCelda();
+        }
+        System.out.println();
+        for(int i=1; i<col; i++){
+            for(int j=0; j<fil; j++){                           
+                m.getCelda(i, j).imprimeCelda();
+            }
+            System.out.println();
+        }                
+    }    
 }

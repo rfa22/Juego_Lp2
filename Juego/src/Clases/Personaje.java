@@ -17,6 +17,8 @@ public class Personaje {
     //private int alto;
     private int posI;
     private int posJ;
+    private int posIanterior;
+    private int posJanterior;
     
     public Personaje(String nombre,int vida,int posI,int posJ){
         this.nombre = nombre;
@@ -25,6 +27,8 @@ public class Personaje {
         this.posI = posI;
         this.posJ = posJ;
         this.vida = vida;
+        this.posIanterior = posI;
+        this.posJanterior = posJ;
     }
     /**
      * @return the nombre
@@ -108,6 +112,34 @@ public class Personaje {
      */
     public void setPosJ(int posJ) {
         this.posJ = posJ;
+    }
+
+    /**
+     * @return the posIanterior
+     */
+    public int getPosIanterior() {
+        return posIanterior;
+    }
+
+    /**
+     * @param posIanterior the posIanterior to set
+     */
+    public void setPosIanterior(int posIanterior) {
+        this.posIanterior = posIanterior;
+    }
+
+    /**
+     * @return the posJanterior
+     */
+    public int getPosJanterior() {
+        return posJanterior;
+    }
+
+    /**
+     * @param posJanterior the posJanterior to set
+     */
+    public void setPosJanterior(int posJanterior) {
+        this.posJanterior = posJanterior;
     }
 
     

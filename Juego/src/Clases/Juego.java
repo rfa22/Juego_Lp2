@@ -26,7 +26,7 @@ public class Juego {
             Scanner entrada = new Scanner(System.in);
             InterpreteComandos interprete = new InterpreteComandos();
             Renderizador render = new Renderizador();            
-            Mapa mapa = new Mapa(16,13);
+            Mapa mapa = new Mapa(17,13);
             int option = entrada.nextInt();
             int turno=1;
             boolean condicion = true; // condicion de fin de juego
@@ -35,24 +35,23 @@ public class Juego {
             String comando;
             switch(option){
                 case 1:
-                    System.out.println("Ingrese el nombre del jugador A:");
-                    nombreA = entrada.nextLine();
-                    System.out.println("Ingrese el nombre del jugador B:");
-                    nombreB = entrada.nextLine();
+                    System.out.print("Ingrese el nombre del jugador A:");
+                    nombreA = entrada.next();
+                    System.out.println();
+                    System.out.print("Ingrese el nombre del jugador B:");
+                    nombreB = entrada.next();
+                    System.out.println();
                     limpiaPantalla();
                     Personaje jugadorA = new Personaje(nombreA,10,3,0);
                     Personaje jugadorB = new Personaje(nombreB,10,9,0);
                     //render.imprimeIndicaciones();
-                    render.imprimeMapa(mapa);                    
+                    render.imprimeMapa(mapa,jugadorA,jugadorB);                    
                     while(condicion){
-                        comando = entrada.nextLine();
-                        if(turno == 1){
-                            interprete.ejecutaComando(comando,jugadorA);
-                        }
-                        else if(turno == 2){
-                            interprete.ejecutaComando(comando,jugadorB);
-                        }
-                        
+                        comando = entrada.nextLine();                        
+                        interprete.ejecutaComando(comando,jugadorA,jugadorB);
+                        limpiaPantalla();
+                        mapa.reiniciaMapa();
+                        render.imprimeMapa(mapa,jugadorA,jugadorB);                                                
                     }
                     break;
             

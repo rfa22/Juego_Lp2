@@ -13,31 +13,51 @@ public class Mapa {
     
     private int ancho;
     private int alto;
-    private Celda[][] mapa;
+    private final Celda[][] mapa;
     
     public Mapa(int an, int al){
         ancho = an; //16
         alto = al;  //13
         
         //creando mapa
-        Celda[][] mapa = new Celda[alto][ancho];
-        
-        for(int i=0; i<alto; i++)
-            for(int j=0; j<ancho; j++)
-                mapa[i][j].setContenido(' ');
-        
-        for(int j=0; j<ancho; j++) //division de las pantallas de A y B
+        mapa = new Celda[ancho][alto];
+        for(int i=0;i<10;i++){
+            mapa[0][i] = new Celda('♥');
+        }
+        for(int i=1; i<ancho;i++){
+            for(int j=0; j<alto; j++){
+                mapa[i][j] = new Celda('#');                                
+            }
+        }
+                                        
+        for(int j=0; j<alto; j++) //division de las pantallas de A y B
            mapa[7][j].setContenido('-');
         
-        mapa[0][3].setContenido('A'); //posicionar al personaje A
-        mapa[0][9].setContenido('B'); //posicionar al personaje B               
+//        mapa[3][0].setContenido('A'); //posicionar al personaje A
+//        mapa[9][0].setContenido('B'); //posicionar al personaje B               
     }
     
     public Celda getCelda(int i, int j){
         return mapa[i][j];
     }
     
-    
+    public void reiniciaMapa(){
+        for(int i=0;i<10;i++){
+            mapa[0][i] = new Celda('♥');
+        }
+        for(int i=1; i<ancho;i++){
+            for(int j=0; j<alto; j++){
+                if(mapa[i][j].getEstado()==1){
+                    mapa[i][j].setContenido(mapa[i][j].getContenido());
+                }
+                else{
+                    mapa[i][j].setContenido('#');
+                }
+            }
+        }
+        for(int j=0; j<alto; j++) //division de las pantallas de A y B
+           mapa[7][j].setContenido('-');
+    }
    /* public void crearMapa(){
         
     }*/

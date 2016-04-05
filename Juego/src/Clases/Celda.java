@@ -11,7 +11,7 @@ package Clases;
  */
 public class Celda {
     
-    private char estado; // puede que sea usado para algo (usado,activo,etc)
+    private int estado; // si esta 0(desactivo) se imprime # ,si esta en 1(activado) se imprime el contenido
     private char contenido;
     /*
     VACIO -> ' '
@@ -22,6 +22,9 @@ public class Celda {
     ENEMIGO -> E    
     */
 
+    public Celda(char c){
+        contenido = c;
+    }
     /**
      * @return the contenido
      */
@@ -36,6 +39,22 @@ public class Celda {
         this.contenido = contenido;
     }
     
-    
+    public void imprimeCelda(){
+        System.out.print(getContenido());
+    }
+
+    /**
+     * @return the estado
+     */
+    public int getEstado() {
+        return estado;
+    }
+
+    /**
+     * @param estado the estado to set
+     */
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
     
 }

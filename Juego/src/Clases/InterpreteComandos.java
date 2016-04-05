@@ -13,59 +13,91 @@ public class InterpreteComandos {
     
     
     
-    public void ejecutaComando(String comando,Personaje jugador){
+    public void ejecutaComando(String comando,Personaje jugadorA,Personaje jugadorB){
             switch(comando){
                 case "w":
                 {
-                    moverArriba(jugador);
+                    moverArriba(jugadorA);
                     break;
                 }
                 
                 case "a":
                 {
-                    moverIzquierda(jugador);
+                    moverIzquierda(jugadorA);
                     break;
                 }
                 
                 case "s":
                 {
-                    moverAbajo(jugador);
+                    moverAbajo(jugadorA);
                     break;
                 }
                 
                 case "d":
                 {
-                    moverDerecha(jugador);
+                    moverDerecha(jugadorA);
                     break;
                 }
                 case "q": //comando especial
                 {
-                    comandoEspecialQ(jugador);
+                    comandoEspecialQ(jugadorA);
                     break;
                 }
                 case "e": // comando especial
                 {
-                    comandoEspecialE(jugador);
+                    comandoEspecialE(jugadorA);
                     break;
                 }
-                    
+                
+                case "i":
+                {
+                    moverArriba(jugadorB);
+                    break;
+                }
+                
+                case "j":
+                {
+                    moverIzquierda(jugadorB);
+                    break;
+                }
+                
+                case "k":
+                {
+                    moverAbajo(jugadorB);
+                    break;
+                }
+                
+                case "l":
+                {
+                    moverDerecha(jugadorB);
+                    break;
+                }
+                case "u": //comando especial
+                {
+                    comandoEspecialQ(jugadorB);
+                    break;
+                }
+                case "o": // comando especial
+                {
+                    comandoEspecialE(jugadorB);
+                    break;
+                }                                    
             }    
     }
         
-    public void moverArriba(Personaje jugador){
-        jugador.setPosI(jugador.getPosI()-1);
-                
+    public void moverArriba(Personaje jugador){        
+        jugador.setPosI(jugador.getPosI()-1);                        
     }
     
-    public void moverIzquierda(Personaje jugador){
+    public void moverIzquierda(Personaje jugador){        
         jugador.setPosJ(jugador.getPosJ()-1);
     }
     
-    public void moverAbajo(Personaje jugador){
+    public void moverAbajo(Personaje jugador){        
         jugador.setPosI(jugador.getPosI()+1);
     }
     
-    public void moverDerecha(Personaje jugador){
+    public void moverDerecha(Personaje jugador){        
         jugador.setPosJ(jugador.getPosJ()+1);
     }
     
