@@ -45,7 +45,7 @@ public class Mapa {
 //        for(int i=0;i<10;i++){
 //            mapa[1][i] = new Celda('♥');
 //        }
-        for(int i=2; i<ancho;i++){
+        for(int i=1; i<ancho;i++){
             for(int j=1; j<alto; j++){
                 if(mapa[i][j].getEstado()==1){
                     mapa[i][j].setContenido(mapa[i][j].getContenido());

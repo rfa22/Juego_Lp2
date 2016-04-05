@@ -44,9 +44,10 @@ public class Juego {
                     nombreB = entrada.next();
                     System.out.println();
                     limpiaPantalla();
-                    Personaje jugadorA = new Personaje(nombreA,10,3,0);
-                    Personaje jugadorB = new Personaje(nombreB,10,9,0);
-                    //render.imprimeIndicaciones();
+                    Personaje jugadorA = new Personaje(nombreA,10,4,1);
+                    Personaje jugadorB = new Personaje(nombreB,10,12,1);
+                    render.imprimeInstrucciones();
+                    limpiaPantalla();
                     render.imprimeMapa(mapa,jugadorA,jugadorB);                    
                     while(condicion){
                         comando = entrada.nextLine();                        
