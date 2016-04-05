@@ -42,6 +42,20 @@ public class Renderizador {
     
     public void imprimeInstrucciones(){
         System.out.println("Instrucciones:");
-        System.out.println("Mover:");
+        System.out.println("\nPersonaje A:");
+        System.out.println("Mover hacia arriba: W");
+        System.out.println("Mover hacia abajo: S");
+        System.out.println("Mover hacia la izquierda: A");
+        System.out.println("Mover hacia la derecha: D");
+        System.out.println("Movimiento especial 1: Q");
+        System.out.println("Movimiento especial 2: E");
+        System.out.println("\nPersonaje B:");
+        System.out.println("Mover hacia arriba: I");
+        System.out.println("Mover hacia abajo: J");
+        System.out.println("Mover hacia la izquierda: K");
+        System.out.println("Mover hacia la derecha: L");        
+        System.out.println("Movimiento especial 1: U");
+        System.out.println("Movimiento especial 2: O");
+        System.out.println("\nPausa/Resumen: B");
     }
 }
