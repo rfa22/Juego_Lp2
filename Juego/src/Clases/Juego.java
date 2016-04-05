@@ -28,13 +28,20 @@ public class Juego {
             Renderizador render = new Renderizador();            
             Mapa mapa = new Mapa();
             int option = entrada.nextInt();
-            String nombre;
+            boolean condicion = true; // condicion de fin de juego
+            String nombreA;
+            String nombreB;
             switch(option){
                 case 1:
-                    System.out.println("Ingrese su nombre:");
-                    nombre = entrada.nextLine();
+                    System.out.println("Ingrese el nombre del jugador A:");
+                    nombreA = entrada.nextLine();
+                    System.out.println("Ingrese el nombre del jugador B:");
+                    nombreB = entrada.nextLine();
+                    limpiaPantalla();
                     render.imprimeMapa(mapa);
-                    
+                    while(condicion){
+                        System.out.println("Turno del jugador A");
+                    }
                     break;
             
                 case 2:                    
@@ -42,6 +49,12 @@ public class Juego {
                     System.exit(0);
                     break;
             }
+        }
+    }
+    
+    public static void limpiaPantalla(){
+        for(int i=0; i<100; i++){
+            System.out.println();
         }
     }
     
