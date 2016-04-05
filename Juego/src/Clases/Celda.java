@@ -21,6 +21,20 @@ public class Celda {
     DUO -> D
     ENEMIGO -> E    
     */
+
+    /**
+     * @return the contenido
+     */
+    public char getContenido() {
+        return contenido;
+    }
+
+    /**
+     * @param contenido the contenido to set
+     */
+    public void setContenido(char contenido) {
+        this.contenido = contenido;
+    }
     
     
     

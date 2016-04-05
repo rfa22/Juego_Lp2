@@ -17,7 +17,13 @@ public class Renderizador {
     }
     
     public void imprimeMapa(Mapa m){
+        int fil = m.getAlto();
+        int col = m.getAncho();
         
+        for(int i=0; i<fil; i++)
+            for(int j=0; j<col; j++)                
+                System.out.print(m.getCelda(i, j).getContenido());
+            
         
     }
     
