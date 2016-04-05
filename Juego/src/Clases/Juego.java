@@ -44,12 +44,12 @@ public class Juego {
                     nombreB = entrada.next();
                     System.out.println();
                     limpiaPantalla();
-                    Personaje jugadorA = new Personaje(nombreA,10,3,0);
-                    Personaje jugadorB = new Personaje(nombreB,10,9,0);
+                    Personaje jugadorA = new Personaje(nombreA,10,4,1);
+                    Personaje jugadorB = new Personaje(nombreB,10,12,1);
                     //render.imprimeIndicaciones();
                     render.imprimeMapa(mapa,jugadorA,jugadorB);                    
                     while(condicion){
-                        comando = entrada.nextLine();                        
+                        comando = entrada.next();                        
                         interprete.ejecutaComando(comando,jugadorA,jugadorB);
                         jugadorA.verificarEnemigos(mapa);
                         jugadorB.verificarEnemigos(mapa);

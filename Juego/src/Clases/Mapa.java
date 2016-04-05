@@ -26,21 +26,21 @@ public class Mapa {
         }
         
         for(int i=1; i<alto;i++) //Marco del mapa lado izquierdo
-            mapa[i][0] = new Celda('█');
+            mapa[i][0] = new Celda('║');
         
         for(int i=1; i<alto;i++) //Marco del mapa lado derecho
-            mapa[i][17] = new Celda('█');
+            mapa[i][17] = new Celda('║');
         
         for(int j=1; j<ancho-1;j++) //Marco del mapa lado arriba
-            mapa[1][j] = new Celda('▀');
+            mapa[1][j] = new Celda('=');
         
         for(int j=1; j<ancho-1;j++) //Marco del mapa lado abajo
-            mapa[15][j] = new Celda('▀');
+            mapa[15][j] = new Celda('=');
         
         
         for(int i=2; i<alto-1;i++){ //parte del mapa donde se mueve los jugadores
             for(int j=1; j<ancho-1; j++){
-                mapa[i][j] = new Celda('#');                                
+                mapa[i][j] = new Celda(' ');                                
             }
         }             
                                         
@@ -56,10 +56,10 @@ public class Mapa {
     }
     
     public void reiniciaMapa(){
-//        for(int i=0;i<10;i++){
-//            mapa[1][i] = new Celda('♥');
-//        }
-        for(int i=2; i<ancho;i++){
+        for(int i=0;i<10;i++){
+            mapa[1][i] = new Celda('♥');
+        }
+        for(int i=1; i<ancho;i++){
             for(int j=1; j<alto; j++){
                 if(mapa[i][j].getEstado()==1){
                     mapa[i][j].setContenido(mapa[i][j].getContenido());
