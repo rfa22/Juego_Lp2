@@ -13,66 +13,67 @@ public class InterpreteComandos {
     
     
     
-    public void reconoceComando(String comando){
+    public void ejecutaComando(String comando,Personaje jugador){
             switch(comando){
                 case "w":
                 {
-                    moverArriba();
+                    moverArriba(jugador);
                     break;
                 }
                 
                 case "a":
                 {
-                    moverIzquierda();
+                    moverIzquierda(jugador);
                     break;
                 }
                 
                 case "s":
                 {
-                    moverAbajo();
+                    moverAbajo(jugador);
                     break;
                 }
                 
                 case "d":
                 {
-                    moverDerecha();
+                    moverDerecha(jugador);
                     break;
                 }
                 case "q": //comando especial
                 {
-                    comandoEspecialQ();
+                    comandoEspecialQ(jugador);
                     break;
                 }
                 case "e": // comando especial
                 {
-                    comandoEspecialE();
+                    comandoEspecialE(jugador);
                     break;
                 }
                     
             }    
     }
-    
-    public void moverArriba(){
+        
+    public void moverArriba(Personaje jugador){
+        jugador.setPosI(jugador.getPosI()-1);
                 
     }
     
-    public void moverIzquierda(){
+    public void moverIzquierda(Personaje jugador){
+        jugador.setPosJ(jugador.getPosJ()-1);
+    }
+    
+    public void moverAbajo(Personaje jugador){
+        jugador.setPosI(jugador.getPosI()+1);
+    }
+    
+    public void moverDerecha(Personaje jugador){
+        jugador.setPosJ(jugador.getPosJ()+1);
+    }
+    
+    public void comandoEspecialQ(Personaje jugador){
         
     }
     
-    public void moverAbajo(){
-        
-    }
-    
-    public void moverDerecha(){
-        
-    }
-    
-    public void comandoEspecialQ(){
-        
-    }
-    
-    public void comandoEspecialE(){
+    public void comandoEspecialE(Personaje jugador){
         
     }
 }

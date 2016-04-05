@@ -26,11 +26,13 @@ public class Juego {
             Scanner entrada = new Scanner(System.in);
             InterpreteComandos interprete = new InterpreteComandos();
             Renderizador render = new Renderizador();            
-            Mapa mapa = new Mapa();
+            Mapa mapa = new Mapa(16,13);
             int option = entrada.nextInt();
+            int turno=1;
             boolean condicion = true; // condicion de fin de juego
             String nombreA;
             String nombreB;
+            String comando;
             switch(option){
                 case 1:
                     System.out.println("Ingrese el nombre del jugador A:");
@@ -38,9 +40,19 @@ public class Juego {
                     System.out.println("Ingrese el nombre del jugador B:");
                     nombreB = entrada.nextLine();
                     limpiaPantalla();
-                    render.imprimeMapa(mapa);
+                    Personaje jugadorA = new Personaje(nombreA,10,3,0);
+                    Personaje jugadorB = new Personaje(nombreB,10,9,0);
+                    //render.imprimeIndicaciones();
+                    render.imprimeMapa(mapa);                    
                     while(condicion){
-                        System.out.println("Turno del jugador A");
+                        comando = entrada.nextLine();
+                        if(turno == 1){
+                            interprete.ejecutaComando(comando,jugadorA);
+                        }
+                        else if(turno == 2){
+                            interprete.ejecutaComando(comando,jugadorB);
+                        }
+                        
                     }
                     break;
             

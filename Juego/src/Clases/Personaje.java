@@ -13,10 +13,19 @@ public class Personaje {
     
     private String nombre;
     private int vida;
-    private int ancho;
-    private int alto;
-    private int posX;
-    private int posY;
+    //private int ancho;
+    //private int alto;
+    private int posI;
+    private int posJ;
+    
+    public Personaje(String nombre,int vida,int posI,int posJ){
+        this.nombre = nombre;
+        //this.alto = alto;
+        //this.ancho = ancho;
+        this.posI = posI;
+        this.posJ = posJ;
+        this.vida = vida;
+    }
     /**
      * @return the nombre
      */
@@ -48,29 +57,57 @@ public class Personaje {
     /**
      * @return the ancho
      */
-    public int getAncho() {
-        return ancho;
+//    public int getAncho() {
+//        return ancho;
+//    }
+//
+//    /**
+//     * @param ancho the ancho to set
+//     */
+//    public void setAncho(int ancho) {
+//        this.ancho = ancho;
+//    }
+//
+//    /**
+//     * @return the alto
+//     */
+//    public int getAlto() {
+//        return alto;
+//    }
+//
+//    /**
+//     * @param alto the alto to set
+//     */
+//    public void setAlto(int alto) {
+//        this.alto = alto;
+//    }
+
+    /**
+     * @return the posI
+     */
+    public int getPosI() {
+        return posI;
     }
 
     /**
-     * @param ancho the ancho to set
+     * @param posI the posI to set
      */
-    public void setAncho(int ancho) {
-        this.ancho = ancho;
+    public void setPosI(int posI) {
+        this.posI = posI;
     }
 
     /**
-     * @return the alto
+     * @return the posY
      */
-    public int getAlto() {
-        return alto;
+    public int getPosJ() {
+        return posJ;
     }
 
     /**
-     * @param alto the alto to set
+     * @param posJ the posJ to set
      */
-    public void setAlto(int alto) {
-        this.alto = alto;
+    public void setPosJ(int posJ) {
+        this.posJ = posJ;
     }
 
     

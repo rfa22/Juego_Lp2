@@ -10,6 +10,11 @@ package Clases;
  * @author PUCP
  */
 public class Enemigo extends Personaje{
-    private int danio;
+    private int dano;
+    
+    public Enemigo(String nombre,int vida,int posI,int posJ,int dano){
+        super(nombre,vida,posI,posJ);
+        this.dano = dano;
+    }
     
 }
