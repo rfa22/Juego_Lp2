@@ -37,9 +37,18 @@ public class Juego {
             String comando;
             switch(option){
                 case 1:
+                    for(int i=0; i<15; i++){
+                        System.out.println();
+                    }
+                    for(int j=0;j<10;j++){
+                        System.out.print('\t');
+                    }
                     System.out.print("Ingrese el nombre del jugador A:");
                     nombreA = entrada.next();
                     System.out.println();
+                    for(int j=0;j<10;j++){
+                       System.out.print('\t');
+                    }
                     System.out.print("Ingrese el nombre del jugador B:");
                     nombreB = entrada.next();
                     System.out.println();
@@ -70,10 +79,20 @@ public class Juego {
                     }
                     break;
             
-                case 2:      
+                case 2:
+                    for(int i=0; i<15; i++){
+                        System.out.println();
+                    }
+                    for(int j=0;j<10;j++){
+                        System.out.print('\t');
+                    }
                     System.out.println("Esta seguro?(S/N)");
                     String resp = entrada.next();
-                    if(resp.equals("S")){
+                    resp = resp.toUpperCase();
+                    if(resp.equals("S") ){
+                        for(int j=0;j<10;j++){
+                            System.out.print('\t');
+                        }
                         System.out.println("Ha salido del juego");
                         System.exit(0);
                     }
