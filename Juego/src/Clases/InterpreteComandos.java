@@ -10,8 +10,52 @@ package Clases;
  * @author PUCP
  */
 public class InterpreteComandos {
-    private char comando;
     
-    public void reconoceComando
+    
+    
+    public void reconoceComando(String comando){
+            switch(comando){
+                case "w":
+                {
+                    moverArriba();
+                    break;
+                }
+                
+                case "a":
+                {
+                    moverIzquierda();
+                    break;
+                }
+                
+                case "s":
+                {
+                    moverAbajo();
+                    break;
+                }
+                
+                case "d":
+                {
+                    moverDerecha();
+                    break;
+                }
+            }    
+    }
+    
+    public void moverArriba(){
+        
+        
+    }
+    
+    public void moverIzquierda(){
+        
+    }
+    
+    public void moverAbajo(){
+        
+    }
+    
+    public void moverDerecha(){
+        
+    }
     
 }

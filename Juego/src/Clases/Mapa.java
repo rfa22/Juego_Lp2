@@ -10,7 +10,12 @@ package Clases;
  * @author PUCP
  */
 public class Mapa {
-    private int ancho;
-    private int alto;
+    private final int ancho=16;
+    private final int alto=12;
+    private Celda[][] mapa;
     
+    
+    public void crearMapa(){
+        
+    }
 }

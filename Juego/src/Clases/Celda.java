@@ -10,5 +10,7 @@ package Clases;
  * @author PUCP
  */
 public class Celda {
+    private String tipo; 
+    private char estado; // puede que sea usado para algo (usado,activo,etc)
     
 }
