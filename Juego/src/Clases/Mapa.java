@@ -56,9 +56,9 @@ public class Mapa {
     }
     
     public void reiniciaMapa(){
-        for(int i=0;i<10;i++){
-            mapa[0][i] = new Celda(' ');
-        }
+//        for(int i=0;i<10;i++){
+//            mapa[0][i] = new Celda(' ');
+//        }
         
         for(int i=2; i<alto-1;i++){
             for(int j=1; j<ancho-1; j++){

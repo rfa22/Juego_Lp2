@@ -54,7 +54,7 @@ public class Juego {
                     render.imprimeMapa(mapa,jugadorA,jugadorB);                    
                     while(condicion){
                         comando = entrada.next();                        
-                        interprete.ejecutaComando(comando,jugadorA,jugadorB);
+                        interprete.ejecutaComando(comando,jugadorA,jugadorB, mapa);
                         jugadorA.verificarEnemigos(mapa);
                         jugadorB.verificarEnemigos(mapa);
                         limpiaPantalla();
