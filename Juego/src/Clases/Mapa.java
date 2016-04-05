@@ -43,9 +43,28 @@ public class Mapa {
                 mapa[i][j] = new Celda(' ');                                
             }
         }             
+        
+        //Crea enemigos                
+        int enemigosGenerados=0;
+        int randomI;
+        int randomJ;
+        while(true){
+            randomI = (int)(Math.random()*12 + 2);
+            randomJ = (int)(Math.random()*16 + 2);
+            
+            if(randomI != 8){
+                enemigosGenerados++;
+                Enemigo e = new Enemigo("Minero Malo",5,randomI,randomJ,1);
+                mapa[randomI][randomJ].setContenido('E');
+                mapa[randomI][randomJ].setEstado(1);
+            }
+            if(enemigosGenerados==5) break;
+        }
                                         
+        
+        
         for(int j=0; j<ancho; j++) //division de las pantallas de A y B
-           mapa[8][j].setContenido('-');
+           mapa[8][j].setContenido('~');
         
 //        mapa[3][0].setContenido('A'); //posicionar al personaje A
 //        mapa[9][0].setContenido('B'); //posicionar al personaje B               
@@ -71,7 +90,7 @@ public class Mapa {
                 
             }
         }
-        for(int j=0; j<ancho-1; j++) //division de las pantallas de A y B
+        for(int j=0; j<ancho; j++) //division de las pantallas de A y B
            mapa[8][j].setContenido('~');
     }
    

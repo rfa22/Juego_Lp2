@@ -27,8 +27,6 @@ public class Personaje {
         this.posI = posI;
         this.posJ = posJ;
         this.vida = vida;
-        this.posIanterior = posI;
-        this.posJanterior = posJ;
     }
     
     public void verificarEnemigos(Mapa mapa){
