@@ -24,6 +24,7 @@ public class Celda {
 
     public Celda(char c){
         contenido = c;
+        estado = 0;
     }
     /**
      * @return the contenido
