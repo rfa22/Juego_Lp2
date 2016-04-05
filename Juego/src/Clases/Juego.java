@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package juego;
+package Clases;
 
 /**
  *
@@ -19,7 +19,6 @@ public class Juego {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Ventana miVentana = new Ventana();        
         while(true){            
             System.out.println("Elija una opción:");
             System.out.println("1.- Iniciar el juego");
@@ -28,11 +27,12 @@ public class Juego {
             int option = entrada.nextInt();
             switch(option){
                 case 1:
-                
+                    
                     break;
             
                 case 2:                    
                     System.out.println("Ha salido del juego");
+                    System.exit(0);
                     break;
             }
         }
