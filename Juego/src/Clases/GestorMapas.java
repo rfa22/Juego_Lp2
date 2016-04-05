@@ -11,4 +11,18 @@ package Clases;
  */
 public class GestorMapas {
     
+    private Mapa[] mapas;
+    
+    
+    public GestorMapas(){
+        mapas = new Mapa[4];
+    }
+    
+    public void addMapa(Mapa m){
+        mapas[mapas.length] = m;
+    }
+    
+    public Mapa devuelveMapa(int pos){        
+        return mapas[pos];
+    }
 }

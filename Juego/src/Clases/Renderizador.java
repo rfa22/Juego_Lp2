@@ -21,19 +21,23 @@ public class Renderizador {
 
         m.getCelda(a.getPosI(), a.getPosJ()).setContenido('A');
         m.getCelda(b.getPosI(), b.getPosJ()).setContenido('B');
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < a.getVida(); i++) {
             m.getCelda(0, i).setContenido('♥');
             m.getCelda(0, i).imprimeCelda();
         }
         System.out.println("\n");
-        for (int i = 1; i < col; i++) {
-            for (int j = 0; j < fil; j++) {
+        for (int i = 1; i < fil; i++) {
+            for (int j = 0; j < col; j++) {
                 m.getCelda(i, j).imprimeCelda();
             }
             System.out.println();
         }
     }
 
+    public void imprimeIntro(){
+        for(int i=0; i<3; i++) System.out.println();
+        System.out.println("                  LOS MUQUI-AMIGOS");        
+    }
     public void imprimeMenu() {
         System.out.println("Elija una opción:");
         System.out.println("1.- Iniciar el juego");

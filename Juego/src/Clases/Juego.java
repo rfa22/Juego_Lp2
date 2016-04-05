@@ -19,14 +19,16 @@ public class Juego {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        while(true){            
-            System.out.println("Elija una opción:");
-            System.out.println("1.- Iniciar el juego");
-            System.out.println("2.- Salir del juego");
-            Scanner entrada = new Scanner(System.in);
-            InterpreteComandos interprete = new InterpreteComandos();
-            Renderizador render = new Renderizador();            
-            Mapa mapa = new Mapa(17,13);
+        Scanner entrada = new Scanner(System.in);
+        InterpreteComandos interprete = new InterpreteComandos();
+        Renderizador render = new Renderizador();            
+        render.imprimeIntro();
+        while(true){                                                
+            if(entrada.next().getClass() == String.class){
+                limpiaPantalla();
+                render.imprimeMenu();
+            }
+            Mapa mapa = new Mapa(18,16);            
             int option = entrada.nextInt();
             int turno=1;
             boolean condicion = true; // condicion de fin de juego
@@ -57,9 +59,17 @@ public class Juego {
                     }
                     break;
             
-                case 2:                    
-                    System.out.println("Ha salido del juego");
-                    System.exit(0);
+                case 2:      
+                    System.out.println("Esta seguro?(S/N)");
+                    String resp = entrada.next();
+                    if(resp.equals("S")){
+                        System.out.println("Ha salido del juego");
+                        System.exit(0);
+                    }
+                    else if(resp.equals("N")){
+                        limpiaPantalla();
+                        render.imprimeMenu();                        
+                    }
                     break;
             }
         }
