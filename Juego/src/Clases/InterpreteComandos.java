@@ -86,7 +86,7 @@ public class InterpreteComandos {
     }
         
     public void moverArriba(Personaje jugador){        
-        jugador.setPosI(jugador.getPosI()-1);                        
+        jugador.setPosI(jugador.getPosI()-1);        
     }
     
     public void moverIzquierda(Personaje jugador){        

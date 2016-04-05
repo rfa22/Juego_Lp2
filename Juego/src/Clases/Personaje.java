@@ -30,6 +30,36 @@ public class Personaje {
         this.posIanterior = posI;
         this.posJanterior = posJ;
     }
+    
+    public void verificarEnemigos(Mapa mapa){
+        
+        if(mapa.getCelda(posI, posJ-1).getContenido() == 'E'){ // W
+            vida-=1;
+        }
+        else if(mapa.getCelda(posI-1, posJ-1).getContenido() == 'E'){ // NW
+            vida-=1;
+        }
+        else if(mapa.getCelda(posI-1, posJ).getContenido() == 'E'){ // N
+            vida-=1;
+        }
+        else if(mapa.getCelda(posI-1, posJ+1).getContenido() == 'E'){ // NE
+            vida-=1;
+        }
+        else if(mapa.getCelda(posI, posJ+1).getContenido() == 'E'){ // E
+            vida-=1;
+        }
+        else if(mapa.getCelda(posI+1, posJ+1).getContenido() == 'E'){ // SE
+            vida-=1;
+        }
+        else if(mapa.getCelda(posI+1, posJ).getContenido() == 'E'){ // S
+            vida-=1;
+        }
+        else if(mapa.getCelda(posI+1, posJ-1).getContenido() == 'E'){ // SW
+            vida-=1;
+        }
+                
+    }
+    
     /**
      * @return the nombre
      */

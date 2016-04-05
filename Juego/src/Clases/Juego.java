@@ -49,6 +49,8 @@ public class Juego {
                     while(condicion){
                         comando = entrada.nextLine();                        
                         interprete.ejecutaComando(comando,jugadorA,jugadorB);
+                        jugadorA.verificarEnemigos(mapa);
+                        jugadorB.verificarEnemigos(mapa);
                         limpiaPantalla();
                         mapa.reiniciaMapa();
                         render.imprimeMapa(mapa,jugadorA,jugadorB);                                                

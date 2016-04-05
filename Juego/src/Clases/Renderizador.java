@@ -26,7 +26,7 @@ public class Renderizador {
             m.getCelda(0, i).setContenido('♥');
             m.getCelda(0, i).imprimeCelda();
         }
-        System.out.println();
+        System.out.println("\n");        
         for(int i=1; i<col; i++){
             for(int j=0; j<fil; j++){                           
                 m.getCelda(i, j).imprimeCelda();
