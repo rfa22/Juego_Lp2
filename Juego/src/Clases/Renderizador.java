@@ -7,11 +7,18 @@ package Clases;
 
 /**
  *
- * @author PUCP
+ * @author alulab14
  */
-public class InterpreteComandos {
-    private char comando;
+public class Renderizador {
     
-    public void reconoceComando
+    
+    public Renderizador(){
+        
+    }
+    
+    public void imprimeMapa(Mapa m){
+        
+        
+    }
     
 }

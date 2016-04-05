@@ -27,6 +27,7 @@ public class Juego {
             int option = entrada.nextInt();
             switch(option){
                 case 1:
+                     
                     
                     break;
             
