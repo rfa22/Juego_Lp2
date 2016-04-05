@@ -38,12 +38,22 @@ public class InterpreteComandos {
                     moverDerecha();
                     break;
                 }
+                case "q": //comando especial
+                {
+                    comandoEspecialQ();
+                    break;
+                }
+                case "e": // comando especial
+                {
+                    comandoEspecialE();
+                    break;
+                }
+                    
             }    
     }
     
     public void moverArriba(){
-        
-        
+                
     }
     
     public void moverIzquierda(){
@@ -58,4 +68,11 @@ public class InterpreteComandos {
         
     }
     
+    public void comandoEspecialQ(){
+        
+    }
+    
+    public void comandoEspecialE(){
+        
+    }
 }

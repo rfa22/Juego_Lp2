@@ -10,8 +10,8 @@ package Clases;
  * @author PUCP
  */
 public class Mapa {
-    private final int ancho=16;
-    private final int alto=12;
+    private int ancho;
+    private int alto;
     private Celda[][] mapa;
     
     

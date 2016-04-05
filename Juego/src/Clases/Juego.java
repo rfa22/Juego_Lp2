@@ -24,10 +24,16 @@ public class Juego {
             System.out.println("1.- Iniciar el juego");
             System.out.println("2.- Salir del juego");
             Scanner entrada = new Scanner(System.in);
+            InterpreteComandos interprete = new InterpreteComandos();
+            Renderizador render = new Renderizador();            
+            Mapa mapa = new Mapa();
             int option = entrada.nextInt();
+            String nombre;
             switch(option){
                 case 1:
-                     
+                    System.out.println("Ingrese su nombre:");
+                    nombre = entrada.nextLine();
+                    render.imprimeMapa(mapa);
                     
                     break;
             
