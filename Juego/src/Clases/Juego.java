@@ -54,9 +54,16 @@ public class Juego {
                     render.imprimeMapa(mapa,jugadorA,jugadorB);                    
                     while(condicion){
                         comando = entrada.next();                        
-                        interprete.ejecutaComando(comando,jugadorA,jugadorB, mapa);
-                        jugadorA.verificarEnemigos(mapa);
-                        jugadorB.verificarEnemigos(mapa);
+                        interprete.ejecutaComando(comando,jugadorA,jugadorB, mapa,jugadorA.verificarEnemigos(mapa),jugadorB.verificarEnemigos(mapa));                        
+                        if(jugadorA.verificarEnemigos(mapa) > 0)
+                            jugadorB.setVida(jugadorB.getVida() - 1);
+                        if(jugadorB.verificarEnemigos(mapa) > 0)
+                            jugadorA.setVida(jugadorA.getVida() - 1);
+                        if(jugadorA.getEstado() == 0 && jugadorB.getEstado() == 0){
+                            limpiaPantalla();
+                            render.imprimeCelebracionMuquiConSuerteYDeLasCuevasDeLaSierraAndinaDelPeru();
+                            break;
+                        }
                         limpiaPantalla();
                         mapa.reiniciaMapa();
                         render.imprimeMapa(mapa,jugadorA,jugadorB);                                                

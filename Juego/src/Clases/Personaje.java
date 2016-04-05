@@ -17,8 +17,7 @@ public class Personaje {
     //private int alto;
     private int posI;
     private int posJ;
-    private int posIanterior;
-    private int posJanterior;
+    private int estado;
     
     public Personaje(String nombre,int vida,int posI,int posJ){
         this.nombre = nombre;
@@ -27,35 +26,44 @@ public class Personaje {
         this.posI = posI;
         this.posJ = posJ;
         this.vida = vida;
+        this.estado=1;
     }
     
-    public void verificarEnemigos(Mapa mapa){
+    public int verificarEnemigos(Mapa mapa){
         
         if(mapa.getCelda(posI, posJ-1).getContenido() == 'E'){ // W
-            vida-=1;
+            vida-=1;            
+            return 4;  //ESTO SIGNIFICA QUE LE QUITO VIDA POR LO TANTO FUERA DE ESTE METODO TENDREMOS QUE ACTUALIZAR LA VIDA DE B A -1 TAMBIEN
         }
         else if(mapa.getCelda(posI-1, posJ-1).getContenido() == 'E'){ // NW
-            vida-=1;
+            vida-=1;            
+            return 7;
         }
         else if(mapa.getCelda(posI-1, posJ).getContenido() == 'E'){ // N
-            vida-=1;
+            vida-=1;            
+            return 8;
         }
         else if(mapa.getCelda(posI-1, posJ+1).getContenido() == 'E'){ // NE
-            vida-=1;
+            vida-=1;            
+            return 9;
         }
         else if(mapa.getCelda(posI, posJ+1).getContenido() == 'E'){ // E
-            vida-=1;
+            vida-=1;            
+            return 6;
         }
         else if(mapa.getCelda(posI+1, posJ+1).getContenido() == 'E'){ // SE
-            vida-=1;
+            vida-=1;            
+            return 3;
         }
         else if(mapa.getCelda(posI+1, posJ).getContenido() == 'E'){ // S
-            vida-=1;
+            vida-=1;            
+            return 2;
         }
         else if(mapa.getCelda(posI+1, posJ-1).getContenido() == 'E'){ // SW
-            vida-=1;
+            vida-=1;            
+            return 1;
         }
-                
+        return 0;     
     }
     
     /**
@@ -143,32 +151,16 @@ public class Personaje {
     }
 
     /**
-     * @return the posIanterior
+     * @return the estado
      */
-    public int getPosIanterior() {
-        return posIanterior;
+    public int getEstado() {
+        return estado;
     }
 
     /**
-     * @param posIanterior the posIanterior to set
+     * @param estado the estado to set
      */
-    public void setPosIanterior(int posIanterior) {
-        this.posIanterior = posIanterior;
-    }
-
-    /**
-     * @return the posJanterior
-     */
-    public int getPosJanterior() {
-        return posJanterior;
-    }
-
-    /**
-     * @param posJanterior the posJanterior to set
-     */
-    public void setPosJanterior(int posJanterior) {
-        this.posJanterior = posJanterior;
-    }
-
-    
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }  
 }

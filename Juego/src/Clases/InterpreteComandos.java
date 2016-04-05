@@ -11,7 +11,7 @@ package Clases;
  */
 public class InterpreteComandos {
 
-    public void ejecutaComando(String comando, Personaje jugadorA, Personaje jugadorB, Mapa mapa) {
+    public void ejecutaComando(String comando, Personaje jugadorA, Personaje jugadorB, Mapa mapa,int posEA,int posEB) {
         switch (comando) {
             case "w": {
                 moverArriba(jugadorA, mapa);
@@ -34,12 +34,12 @@ public class InterpreteComandos {
             }
             case "q": //comando especial
             {
-                comandoEspecialQ(jugadorA, mapa);
+                comandoEspecialQ(jugadorA, mapa,posEA);
                 break;
             }
             case "e": // comando especial
             {
-                comandoEspecialE(jugadorA, mapa);
+                comandoEspecialE(jugadorA, mapa,posEA);
                 break;
             }
 
@@ -64,12 +64,12 @@ public class InterpreteComandos {
             }
             case "u": //comando especial
             {
-                comandoEspecialQ(jugadorB, mapa);
+                comandoEspecialU(jugadorB, mapa,posEB);
                 break;
             }
             case "o": // comando especial
             {
-                comandoEspecialE(jugadorB, mapa);
+                comandoEspecialO(jugadorB, mapa,posEB);
                 break;
             }
         }
@@ -78,40 +78,64 @@ public class InterpreteComandos {
     public void moverArriba(Personaje jugador, Mapa mapa) {
         int i = jugador.getPosI() - 1, j = jugador.getPosJ();
         Celda techo = mapa.getCelda(i, j);
-        if (techo.getContenido() != '=') {
+        if ((techo.getContenido() != '=' && techo.getContenido() != '~') && techo.getContenido() != '╬') {
             jugador.setPosI(jugador.getPosI() - 1);
+            jugador.setEstado(1);
+        }
+        else if(techo.getContenido() == '╬'){
+            jugador.setEstado(0);
         }
     }
 
     public void moverIzquierda(Personaje jugador, Mapa mapa) {
         int i = jugador.getPosI(), j = jugador.getPosJ() - 1;
         Celda techo = mapa.getCelda(i, j);
-        if (techo.getContenido() != '║') {
+        if (techo.getContenido() != '║' && techo.getContenido() != '╬') {
             jugador.setPosJ(jugador.getPosJ() - 1);
+            jugador.setEstado(1);
+        }
+        else if(techo.getContenido() == '╬'){
+            jugador.setEstado(0);
         }
     }
 
     public void moverAbajo(Personaje jugador, Mapa mapa) {
         int i = jugador.getPosI() + 1, j = jugador.getPosJ();
         Celda techo = mapa.getCelda(i, j);
-        if (techo.getContenido() != '=') {
+        if ((techo.getContenido() != '=' && techo.getContenido() != '~') && techo.getContenido() != '╬') {
             jugador.setPosI(jugador.getPosI() + 1);
+            jugador.setEstado(1);
+        }
+        else if(techo.getContenido() == '╬'){
+            jugador.setEstado(0);
         }
     }
 
     public void moverDerecha(Personaje jugador, Mapa mapa) {
         int i = jugador.getPosI(), j = jugador.getPosJ() + 1;
         Celda techo = mapa.getCelda(i, j);
-        if (techo.getContenido() != '║') {
+        if (techo.getContenido() != '║' && techo.getContenido() != '╬') {
             jugador.setPosJ(jugador.getPosJ() + 1);
+            jugador.setEstado(1);
+        }
+        else if(techo.getContenido() == '╬'){
+            jugador.setEstado(0);
         }
     }
 
-    public void comandoEspecialQ(Personaje jugador, Mapa mapa) {
-
+    public void comandoEspecialQ(Personaje jugador, Mapa mapa,int posE) {        
+        mapa.verificaDireccion(posE,jugador);
     }
 
-    public void comandoEspecialE(Personaje jugador, Mapa mapa) {
+    public void comandoEspecialE(Personaje jugador, Mapa mapa,int posE) {
+        mapa.verificaDireccion(posE,jugador);
+    }
 
+    public void comandoEspecialU(Personaje jugador, Mapa mapa,int posE) {
+        mapa.verificaDireccion(posE,jugador);
+    }
+
+    public void comandoEspecialO(Personaje jugador, Mapa mapa,int posE) {
+        mapa.verificaDireccion(posE,jugador);
     }
 }

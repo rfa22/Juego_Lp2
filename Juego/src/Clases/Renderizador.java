@@ -62,4 +62,8 @@ public class Renderizador {
         System.out.println("Movimiento especial 2: O");
         System.out.println("\nPausa/Resumen: B");
     }
+    
+    public void imprimeCelebracionMuquiConSuerteYDeLasCuevasDeLaSierraAndinaDelPeru(){
+        System.out.println("YEEEEH");
+    }
 }
