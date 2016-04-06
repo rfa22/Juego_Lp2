@@ -23,13 +23,13 @@ public class Juego {
         InterpreteComandos interprete = new InterpreteComandos();
         Renderizador render = new Renderizador();            
         render.imprimeIntro();
+        if(entrada.next().getClass() == String.class){
+                limpiaPantalla();
+            }
         /*Inicio del bucle principal del juego*/
         while(true){                          
-            /**/
-            if(entrada.next().getClass() == String.class){
-                limpiaPantalla();
-                render.imprimeMenu();
-            }
+            /**/            
+            render.imprimeMenu();            
             Mapa mapa = new Mapa(18,16);            
             int option = entrada.nextInt();
             boolean condicion = true; // condicion de fin de juego
@@ -63,7 +63,21 @@ public class Juego {
                     limpiaPantalla();                    
                     render.imprimeMapa(mapa,jugadorA,jugadorB);                    
                     while(condicion){
-                        comando = entrada.next();   
+                        comando = entrada.next();
+                        if(comando.equals(".")){
+                            limpiaPantalla();                            
+                            for(int j=0;j<10;j++){
+                                System.out.print('\t');
+                            }
+                            System.out.println("¿Esta seguro que desea salir?(S/N)");
+                            String opcion = entrada.next();
+                            if(opcion.equalsIgnoreCase("s")){
+                                System.exit(0);
+                            }
+                            else if(opcion.equalsIgnoreCase("n")){
+                                render.imprimeMapa(mapa, jugadorA, jugadorB);
+                            }
+                        }
                         int enemigosA = jugadorA.verificarEnemigos(mapa);
                         int enemigosB = jugadorB.verificarEnemigos(mapa);
                         interprete.ejecutaComando(comando,jugadorA,jugadorB, mapa,enemigosA,enemigosB);                        
@@ -73,13 +87,13 @@ public class Juego {
                             jugadorA.setVida(jugadorA.getVida() - 1);
                         if(!jugadorA.verificaVida()){
                             limpiaPantalla();
-                            render.imprimeGameOver();
-                            System.exit(0);
+                            render.imprimeGameOver();                            
+                            break;
                         }
                         if(jugadorA.getEstado() == 0 && jugadorB.getEstado() == 0){
                             limpiaPantalla();
                             render.imprimeCelebracion();
-                            System.exit(0);
+                            break;
                         }
                         limpiaPantalla();
                         mapa.reiniciaMapa();
@@ -87,7 +101,8 @@ public class Juego {
                     }
                     break;
             
-                case 2:
+                case 2:                    
+                    limpiaPantalla();
                     for(int i=0; i<15; i++){
                         System.out.println();
                     }
@@ -106,7 +121,7 @@ public class Juego {
                     }
                     else if(resp.equals("N")){
                         limpiaPantalla();
-                        render.imprimeMenu();                        
+                        break;
                     }
                     break;
             }

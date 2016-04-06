@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Clases;
-
+import java.util.*;
 /**
  *
  * @author PUCP
@@ -72,7 +72,7 @@ public class InterpreteComandos {
             {
                 comandoEspecialO(jugadorB, mapa, posEB);
                 break;
-            }
+            }            
         }
     }
     /*Métodos que ejecutan los movimientos de los personajes*/
@@ -95,6 +95,10 @@ public class InterpreteComandos {
                 mapa.getCelda(i - 1, j).setContenido('E');
             }
         }
+        //Activador Duo
+        if(techo.getContenido() == 'D'){
+            techo.setEstado(0);
+        }
     }
 
     public void moverIzquierda(Personaje jugador, Mapa mapa) {
@@ -111,6 +115,9 @@ public class InterpreteComandos {
                 mapa.getCelda(i, j - 1).setEstado(1); // 1 es activo (visible)
                 mapa.getCelda(i, j - 1).setContenido('E');
             }
+        }
+        if(techo.getContenido() == 'D'){
+            techo.setEstado(0);
         }
     }
 
@@ -129,6 +136,9 @@ public class InterpreteComandos {
                 mapa.getCelda(i + 1, j).setContenido('E');
             }
         }
+        if(techo.getContenido() == 'D'){
+            techo.setEstado(0);
+        }
     }
 
     public void moverDerecha(Personaje jugador, Mapa mapa) {
@@ -145,6 +155,9 @@ public class InterpreteComandos {
                 mapa.getCelda(i, j + 1).setEstado(1); // 1 es activo (visible)
                 mapa.getCelda(i, j + 1).setContenido('E');
             }
+        }
+        if(techo.getContenido() == 'D'){
+            techo.setEstado(0);
         }
     }
 
