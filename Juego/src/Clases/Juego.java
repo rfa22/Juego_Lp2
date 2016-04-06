@@ -23,14 +23,15 @@ public class Juego {
         InterpreteComandos interprete = new InterpreteComandos();
         Renderizador render = new Renderizador();            
         render.imprimeIntro();
-        while(true){                                                
+        /*Inicio del bucle principal del juego*/
+        while(true){                          
+            /**/
             if(entrada.next().getClass() == String.class){
                 limpiaPantalla();
                 render.imprimeMenu();
             }
             Mapa mapa = new Mapa(18,16);            
             int option = entrada.nextInt();
-            int turno=1;
             boolean condicion = true; // condicion de fin de juego
             String nombreA;
             String nombreB;
@@ -62,16 +63,23 @@ public class Juego {
                     limpiaPantalla();                    
                     render.imprimeMapa(mapa,jugadorA,jugadorB);                    
                     while(condicion){
-                        comando = entrada.next();                        
-                        interprete.ejecutaComando(comando,jugadorA,jugadorB, mapa,jugadorA.verificarEnemigos(mapa),jugadorB.verificarEnemigos(mapa));                        
-                        if(jugadorA.verificarEnemigos(mapa) > 0)
+                        comando = entrada.next();   
+                        int enemigosA = jugadorA.verificarEnemigos(mapa);
+                        int enemigosB = jugadorB.verificarEnemigos(mapa);
+                        interprete.ejecutaComando(comando,jugadorA,jugadorB, mapa,enemigosA,enemigosB);                        
+                        if(enemigosA > 0)
                             jugadorB.setVida(jugadorB.getVida() - 1);
-                        if(jugadorB.verificarEnemigos(mapa) > 0)
+                        if(enemigosB > 0)
                             jugadorA.setVida(jugadorA.getVida() - 1);
+                        if(!jugadorA.verificaVida()){
+                            limpiaPantalla();
+                            render.imprimeGameOver();
+                            System.exit(0);
+                        }
                         if(jugadorA.getEstado() == 0 && jugadorB.getEstado() == 0){
                             limpiaPantalla();
                             render.imprimeCelebracionMuquiConSuerteYDeLasCuevasDeLaSierraAndinaDelPeru();
-                            break;
+                            System.exit(0);
                         }
                         limpiaPantalla();
                         mapa.reiniciaMapa();

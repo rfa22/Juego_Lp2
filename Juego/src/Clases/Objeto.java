@@ -13,10 +13,21 @@ public class Objeto {
     private String nombre;
     private int posX;
     private int posY;
+//    private int estado;
+
+    
+    public Objeto(String nombre, int posX, int posY){
+        this.nombre = nombre;
+        this.posX = posX;
+        this.posY = posY;
+    }
 
     /**
      * @return the nombre
      */
+    
+    
+    
     public String getNombre() {
         return nombre;
     }

@@ -10,7 +10,7 @@ package Clases;
  * @author PUCP
  */
 public class InterpreteComandos {
-
+    /*Es la clase encargada de validar las acciones ingresadas por teclado (comandos)*/
     public void ejecutaComando(String comando, Personaje jugadorA, Personaje jugadorB, Mapa mapa,int posEA,int posEB) {
         switch (comando) {
             case "w": {
@@ -74,56 +74,73 @@ public class InterpreteComandos {
             }
         }
     }
-
+    /*Métodos que ejecutan los movimientos de los personajes*/
     public void moverArriba(Personaje jugador, Mapa mapa) {
         int i = jugador.getPosI() - 1, j = jugador.getPosJ();
         Celda techo = mapa.getCelda(i, j);
-        if ((techo.getContenido() != '=' && techo.getContenido() != '~') && techo.getContenido() != '╬') {
+        /*Verificación si el movimiento a realizar sigue dentro del mapa,
+        no pasa el límite con el espacio del otro jugador y no ha llegado aún a la puerta*/
+        if (techo.getContenido() != '=' && techo.getContenido() != '~' && techo.getContenido() != '╬' && techo.getContenido() != 'E' && techo.getContenido() != 'O') {
             jugador.setPosI(jugador.getPosI() - 1);
             jugador.setEstado(1);
         }
         else if(techo.getContenido() == '╬'){
             jugador.setEstado(0);
         }
+        if(mapa.getCelda(i-2, j).getEstado() == 3){
+            mapa.getCelda(i-2, j).setEstado(1); // 1 es activo (visible)
+        }
     }
 
     public void moverIzquierda(Personaje jugador, Mapa mapa) {
         int i = jugador.getPosI(), j = jugador.getPosJ() - 1;
         Celda techo = mapa.getCelda(i, j);
-        if (techo.getContenido() != '║' && techo.getContenido() != '╬') {
+        if (techo.getContenido() != '║' && techo.getContenido() != '╬' && techo.getContenido() != 'E' && techo.getContenido() != 'O') {
             jugador.setPosJ(jugador.getPosJ() - 1);
             jugador.setEstado(1);
         }
         else if(techo.getContenido() == '╬'){
             jugador.setEstado(0);
         }
+        if(mapa.getCelda(i, j-2).getEstado() == 3){
+            mapa.getCelda(i, j-2).setEstado(1); // 1 es activo (visible)
+        }
     }
 
     public void moverAbajo(Personaje jugador, Mapa mapa) {
         int i = jugador.getPosI() + 1, j = jugador.getPosJ();
         Celda techo = mapa.getCelda(i, j);
-        if ((techo.getContenido() != '=' && techo.getContenido() != '~') && techo.getContenido() != '╬') {
+        if ((techo.getContenido() != '=' && techo.getContenido() != '~') && techo.getContenido() != '╬' && techo.getContenido() != 'E' && techo.getContenido() != 'O') {
             jugador.setPosI(jugador.getPosI() + 1);
-            jugador.setEstado(1);
-        }
+            jugador.setEstado(1);            
+        }        
         else if(techo.getContenido() == '╬'){
             jugador.setEstado(0);
+        }
+        if(mapa.getCelda(i+2, j).getEstado() == 3){
+            mapa.getCelda(i+2, j).setEstado(1); // 1 es activo (visible)
         }
     }
 
     public void moverDerecha(Personaje jugador, Mapa mapa) {
         int i = jugador.getPosI(), j = jugador.getPosJ() + 1;
         Celda techo = mapa.getCelda(i, j);
-        if (techo.getContenido() != '║' && techo.getContenido() != '╬') {
+        if (techo.getContenido() != '║' && techo.getContenido() != '╬' &&  techo.getContenido() != 'E' && techo.getContenido() != 'O') {
             jugador.setPosJ(jugador.getPosJ() + 1);
             jugador.setEstado(1);
         }
         else if(techo.getContenido() == '╬'){
             jugador.setEstado(0);
         }
+        if(mapa.getCelda(i, j+3).getContenido() == 'E'){            
+            mapa.getCelda(i, j+3).setEstado(1); // 1 es activo (visible)
+            mapa.getCelda(i, j+3).setContenido('E');
+        }
     }
 
-    public void comandoEspecialQ(Personaje jugador, Mapa mapa,int posE) {        
+    /*Métodos que ejecutan los comandos especiales para cada personaje.
+    Ubican al enemigo y lo matan*/
+    public void comandoEspecialQ(Personaje jugador, Mapa mapa,int posE) {    
         mapa.verificaDireccion(posE,jugador);
     }
 

@@ -11,7 +11,7 @@ package Clases;
  */
 public class Enemigo extends Personaje{
     private int dano;
-    
+    /*Constructor del Objeto Enemigo: La clase Enemigo hereda de Personaje*/
     public Enemigo(String nombre,int vida,int posI,int posJ,int dano){
         super(nombre,vida,posI,posJ);
         this.dano = dano;

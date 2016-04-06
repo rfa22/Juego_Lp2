@@ -10,9 +10,9 @@ package Clases;
  * @author PUCP
  */
 public class GestorMapas {
-    
-    private Mapa[] mapas;
-    
+    /*Es la clase encargada de gestionar los mapas, es decir, tener la lista de
+    mapas que se emplearán en el juego*/
+    private Mapa[] mapas;   
     
     public GestorMapas(){
         mapas = new Mapa[4];

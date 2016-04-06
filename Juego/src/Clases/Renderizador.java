@@ -24,13 +24,13 @@ public class Renderizador {
         for(int j=0;j<10;j++){
                 System.out.print('\t');
             }
-        for (int i = 0; i < a.getVida(); i++) {
+        for(int i = 0; i < a.getVida(); i++) {
             m.getCelda(0, i).setContenido('♥');            
             m.getCelda(0, i).imprimeCelda();
         }
         System.out.println("\n");
         
-        for (int i = 1; i < fil; i++) {
+        for(int i = 1; i < fil; i++){
             for(int j=0;j<10;j++){
                 System.out.print('\t');
             }
@@ -153,6 +153,19 @@ public class Renderizador {
                 System.out.print('\t');
             }
         System.out.println("           Ganaste!!");
+    }
+    
+    public void imprimeGameOver(){
+        for(int i=0; i<15; i++){
+            System.out.println();
+        }
+        for(int j=0;j<10;j++){
+                System.out.print('\t');
+            }
+        System.out.println("        PERDISTE POR PERUANO");
+        for(int j=0;j<10;j++){
+                System.out.print('\t');
+            }
     }
     
 }

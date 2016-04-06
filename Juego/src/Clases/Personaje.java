@@ -163,4 +163,12 @@ public class Personaje {
     public void setEstado(int estado) {
         this.estado = estado;
     }  
+    
+    public boolean verificaVida(){
+        if (this.vida <= 0){
+            return false; //MURIÓ
+        }
+        return true; // SIGUE VIVO
+    }
+    
 }

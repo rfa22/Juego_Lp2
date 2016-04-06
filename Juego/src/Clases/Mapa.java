@@ -55,23 +55,39 @@ public class Mapa {
         }
 
         //Crea enemigos                
-        int enemigosGenerados = 0;
+        int enemigosGenerados = 0, obstaculosGenerados = 0;
         int randomI;
         int randomJ;
+        int randomEnemigos;
+        int randomObstaculos;
+        randomEnemigos = (int)(Math.random()*3) +5;
+        randomObstaculos = (int)(Math.random()*1) +3;
         while (true) {
             randomI = (int)(Math.random()*12) + 3;
-            randomJ = (int)(Math.random()*13) + 3;
-           
-
-            if (randomI != 9) {
+            randomJ = (int)(Math.random()*13) + 3;            
+            if (randomI != 9 && mapa[randomI][randomJ].getContenido() != 'E' && mapa[randomI][randomJ].getContenido() != 'O') {
                 enemigosGenerados++;
                 Enemigo e = new Enemigo("Minero Malo", 5, randomI, randomJ, 1);
                 mapa[randomI][randomJ].setContenido('E');
+                mapa[randomI][randomJ].setEstado(3); // 3 es oculto
+            }
+            if (enemigosGenerados == randomEnemigos) {
+                break;
+            }                                                
+        }
+        
+        while (true){
+            randomI = (int)(Math.random()*12) + 3;
+            randomJ = (int)(Math.random()*13) + 3;            
+            if (randomI != 9 && mapa[randomI][randomJ].getContenido() != 'E' && mapa[randomI][randomJ].getContenido() != 'O') {
+                obstaculosGenerados++;
+                Obstaculo e = new Obstaculo("Arbol Caido",randomI, randomJ);
+                mapa[randomI][randomJ].setContenido('O');
                 mapa[randomI][randomJ].setEstado(1);
             }
-            if (enemigosGenerados == 5) {
+            if (obstaculosGenerados == randomObstaculos) {
                 break;
-            }
+            }  
         }
 
         for (int j = 0; j < ancho; j++) //division de las pantallas de A y B
