@@ -78,7 +78,7 @@ public class Juego {
                         }
                         if(jugadorA.getEstado() == 0 && jugadorB.getEstado() == 0){
                             limpiaPantalla();
-                            render.imprimeCelebracionMuquiConSuerteYDeLasCuevasDeLaSierraAndinaDelPeru();
+                            render.imprimeCelebracion();
                             System.exit(0);
                         }
                         limpiaPantalla();

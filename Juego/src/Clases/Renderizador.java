@@ -141,7 +141,7 @@ public class Renderizador {
         System.out.println("Pausa/Resumen: B");
     }
     
-    public void imprimeCelebracionMuquiConSuerteYDeLasCuevasDeLaSierraAndinaDelPeru(){
+    public void imprimeCelebracion(){
         for(int i=0; i<15; i++){
             System.out.println();
         }
@@ -162,7 +162,7 @@ public class Renderizador {
         for(int j=0;j<10;j++){
                 System.out.print('\t');
             }
-        System.out.println("        PERDISTE POR PERUANO");
+        System.out.println("        GAME OVER");
         for(int j=0;j<10;j++){
                 System.out.print('\t');
             }
