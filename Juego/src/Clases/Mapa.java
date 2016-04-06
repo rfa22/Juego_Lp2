@@ -89,6 +89,33 @@ public class Mapa {
                 break;
             }  
         }
+        int duosGenerados=0;
+        int randomDuos = 2; // puede variar
+        while (true){ //TERRENO DE A
+            randomI = (int)(Math.random()*5) + 3; 
+            randomJ = (int)(Math.random()*13) + 3;            
+            if (randomI != 9 && mapa[randomI][randomJ].getContenido() != 'E' && mapa[randomI][randomJ].getContenido() != 'O' && mapa[randomI][randomJ].getContenido() != 'D') {
+                duosGenerados++;                
+                mapa[randomI][randomJ].setContenido('D');
+                mapa[randomI][randomJ].setEstado(1);
+            }
+            if (obstaculosGenerados == randomDuos) {
+                break;
+            }  
+        }
+        
+        while (true){ //TERRENO DE B
+            randomI = (int)(Math.random()*5) + 3 + 6; 
+            randomJ = (int)(Math.random()*13) + 3;            
+            if (randomI != 9 && mapa[randomI][randomJ].getContenido() != 'E' && mapa[randomI][randomJ].getContenido() != 'O' && mapa[randomI][randomJ].getContenido() != 'D') {
+                duosGenerados++;               
+                mapa[randomI][randomJ].setContenido('D');
+                mapa[randomI][randomJ].setEstado(1);
+            }
+            if (duosGenerados == randomDuos) {
+                break;
+            }  
+        }
 
         for (int j = 0; j < ancho; j++) //division de las pantallas de A y B
         {
