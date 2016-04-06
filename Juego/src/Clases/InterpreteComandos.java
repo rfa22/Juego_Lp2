@@ -88,6 +88,7 @@ public class InterpreteComandos {
         } else if (techo.getContenido() == '╬') {
             jugador.setEstado(0);
         }
+        //Activador Trigger
         if (techo.getContenido() != '=' && techo.getContenido() != '~' && techo.getContenido() != '╬' && techo.getContenido() != 'O') {
             if (mapa.getCelda(i - 1, j).getEstado() == 3) {
                 mapa.getCelda(i - 1, j).setEstado(1); // 1 es activo (visible)

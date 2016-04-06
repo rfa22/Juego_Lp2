@@ -65,7 +65,7 @@ public class Mapa {
         while (true) {
             randomI = (int)(Math.random()*12) + 3;
             randomJ = (int)(Math.random()*13) + 3;            
-            if (randomI != 9 && mapa[randomI][randomJ].getContenido() != 'E' && mapa[randomI][randomJ].getContenido() != 'O') {
+            if (randomI != 9 && mapa[randomI][randomJ].getContenido() != 'E' && mapa[randomI][randomJ].getContenido() != 'O' && mapa[randomI][randomJ].getContenido() != 'D') {
                 enemigosGenerados++;
                 Enemigo e = new Enemigo("Minero Malo", 5, randomI, randomJ, 1);
                 mapa[randomI][randomJ].setContenido('E');
@@ -76,10 +76,11 @@ public class Mapa {
             }                                                
         }
         
+        //crea obstaculos
         while (true){
             randomI = (int)(Math.random()*12) + 3;
             randomJ = (int)(Math.random()*13) + 3;            
-            if (randomI != 9 && mapa[randomI][randomJ].getContenido() != 'E' && mapa[randomI][randomJ].getContenido() != 'O') {
+            if (randomI != 9 && mapa[randomI][randomJ].getContenido() != 'E' && mapa[randomI][randomJ].getContenido() != 'O' && mapa[randomI][randomJ].getContenido() != 'D') {
                 obstaculosGenerados++;
                 Obstaculo e = new Obstaculo("Arbol Caido",randomI, randomJ);
                 mapa[randomI][randomJ].setContenido('O');
@@ -89,6 +90,8 @@ public class Mapa {
                 break;
             }  
         }
+        
+        //crea duos
         int duosGenerados=0;
         int randomDuos = 2; // puede variar
         while (true){ //TERRENO DE A
@@ -99,11 +102,11 @@ public class Mapa {
                 mapa[randomI][randomJ].setContenido('D');
                 mapa[randomI][randomJ].setEstado(1);
             }
-            if (obstaculosGenerados == randomDuos) {
+            if (duosGenerados == randomDuos) {
                 break;
             }  
         }
-        
+        duosGenerados = 0;
         while (true){ //TERRENO DE B
             randomI = (int)(Math.random()*5) + 3 + 6; 
             randomJ = (int)(Math.random()*13) + 3;            
